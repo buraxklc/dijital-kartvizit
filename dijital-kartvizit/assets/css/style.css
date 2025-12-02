@@ -1,0 +1,183 @@
+/* --- NEO-BRUTALISM AYARLARI --- */
+:root {
+    --bg-color: #FDFBF7;       /* Krem/Bej Arkaplan */
+    --black: #1a1a1a;          /* Sert Siyah */
+    --white: #ffffff;
+    
+    /* Neon Palet */
+    --neon-green: #00FF94;
+    --neon-pink: #FF90E8;
+    --neon-blue: #7DF9FF;
+    --neon-yellow: #FFC900;
+    --neon-purple: #C39BD3;
+
+    --border: 3px solid var(--black);
+    --shadow: 6px 6px 0px 0px var(--black); /* Sert Gölge */
+    --radius: 8px; /* Daha köşeli yapı */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Space Grotesk', sans-serif; /* Font Değişti */
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* --- GRID DÜZENİ (Yüklediğin yapı korundu) --- */
+.bento-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 420px;
+}
+
+/* --- KART GENEL STİLİ --- */
+.card {
+    background: var(--white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.1s ease-in-out; /* Hızlı, mekanik geçiş */
+    position: relative;
+}
+
+/* Hover: Gölge silinir, kart aşağı kayar (Basma hissi) */
+.card:hover {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px 0px var(--black);
+}
+
+.span-2 { grid-column: span 2; }
+
+/* --- PROFİL KARTI --- */
+.profile-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    background: var(--white);
+}
+
+.avatar { width: 70px; height: 70px; flex-shrink: 0; }
+.avatar img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--black); /* Avatara çerçeve */
+}
+
+.profile-info h1 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--black);
+    background: var(--neon-yellow); /* Vurgulu Badge */
+    padding: 4px 8px;
+    border: 2px solid var(--black);
+    border-radius: 4px;
+}
+
+/* --- BİYOGRAFİ --- */
+.bio-card { background-color: var(--white); }
+.bio-card p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* --- İLETİŞİM KUTUCUKLARI (RENKLİ) --- */
+.action-card {
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.icon-box {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.action-card span { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+
+/* Her kutuya ayrı neon renk */
+.whatsapp { background-color: var(--neon-green); }
+.mail { background-color: var(--neon-blue); }
+.phone { background-color: var(--neon-purple); }
+.website { background-color: var(--neon-yellow); }
+
+/* --- SOSYAL MEDYA --- */
+.social-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+}
+.social-card .label { font-weight: 700; text-transform: uppercase; }
+
+.social-icons { display: flex; gap: 10px; }
+.soc-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%; /* Kare buton */
+    background: var(--black);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    border: 2px solid var(--black);
+    transition: 0.2s;
+}
+
+.soc-btn:hover {
+    background: var(--neon-pink);
+    color: var(--black);
+    transform: scale(1.1); /* Sosyal ikonlarda hafif büyüme */
+}
+
+/* --- CTA (KAYDET) BUTONU --- */
+.cta-card {
+    background: var(--black);
+    color: var(--white);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+.cta-card:hover {
+    background: var(--neon-pink); /* Hoverda renk değişimi */
+    color: var(--black);
+    border-color: var(--black);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 380px) {
+    .bento-container { grid-template-columns: 1fr; }
+    .span-2 { grid-column: span 1; }
+    .action-card { 
+        aspect-ratio: auto; 
+        flex-direction: row; 
+        justify-content: flex-start; 
+        padding: 20px; 
+    }
+}
